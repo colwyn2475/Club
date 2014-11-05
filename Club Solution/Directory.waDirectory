@@ -1,6 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<directory>
+﻿<?xml version="1.0" encoding="UTF-8"?><directory>
 	<group ID="01000000000000000000000000000000" name="Admin">
+		<include user="cirrusinfosys" ID="8D98D4620B29974B94FC10F7B2E5B96E"/>
 	</group>
+	<group ID="CF6FAFB459483A4F98822A7DAAF06546" name="SubAdmin"/>
+	<group ID="A0A2075F385DF34F833D9535E89F36A7" name="Guest">
+		<include user="guest" ID="76AA41C642F8BF43A1DA281C62DADAE7"/>
+	</group>
+	<user ID="8D98D4620B29974B94FC10F7B2E5B96E" name="cirrusinfosys" fullName="Cirrus Information  Systems" password="48e5380604a179bb57686af03dabb0b2"/>
+	<user ID="76AA41C642F8BF43A1DA281C62DADAE7" name="guest" fullName="guest" password="c2dca509841ac248cadd7c49183c1222"/>
 </directory>
-

@@ -1,2 +1,358 @@
-{    "toJSON": true,    "dbInfo": [{        "name": "Model",        "uuid": ""    }],    "extraProperties": {        "version": "1",        "classes": {        },        "model": {            "scriptMode": "manual"
-        }    },    "dataClasses": []}
+﻿{
+	"toJSON": true,
+	"extraProperties": {
+		"version": "2",
+		"classes": {
+			"ClubClass": {
+				"panelColor": "#E5B9B7",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 29,
+						"Y": 17
+					}
+				}
+			},
+			"UserClass": {
+				"panelColor": "#B7DDE8",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 45,
+						"Y": 338
+					}
+				}
+			},
+			"MemberClass": {
+				"panelColor": "#D8D8D8",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 297,
+						"Y": 29
+					}
+				}
+			},
+			"EventClass": {
+				"panelColor": "#B8CCE4",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 448,
+						"Y": 297
+					}
+				}
+			}
+		},
+		"model": {
+			"scriptMode": "manual",
+			"workspaceLeft": 0,
+			"workspaceTop": 0,
+			"lastScriptLocation": {
+				"UserClass": {
+					"method": "UserClass/UserClass-methods.js",
+					"events": "UserClass/UserClass-events.js"
+				},
+				"EventClass": {
+					"method": "EventClass/EventClass-methods.js",
+					"events": "EventClass/EventClass-events.js"
+				},
+				"ClubClass": {
+					"events": "ClubClass/ClubClass-events.js"
+				}
+			}
+		}
+	},
+	"dataClasses": [
+		{
+			"name": "ClubClass",
+			"className": "ClubClass",
+			"collectionName": "ClubClassCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "clubId",
+					"kind": "storage",
+					"matchColumn": "ID",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "clubName",
+					"kind": "storage",
+					"matchColumn": "Club_name",
+					"scope": "public",
+					"not_null": true,
+					"type": "string"
+				},
+				{
+					"name": "tenentId",
+					"kind": "storage",
+					"scope": "public",
+					"type": "uuid"
+				},
+				{
+					"name": "clubEmail",
+					"kind": "storage",
+					"scope": "public",
+					"not_null": true,
+					"type": "string",
+					"pattern": "^([a-zA-Z0-9_\\-\\.]+)@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$"
+				},
+				{
+					"name": "clubActive",
+					"kind": "storage",
+					"scope": "public",
+					"type": "bool"
+				},
+				{
+					"name": "clubLeader",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "clubLeaderPhone",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "clubAdmin",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "clubAdminPhone",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				}
+			],
+			"events": [
+				{
+					"kind": "init",
+					"from": "$mainModel.ClubClass.events.init",
+					"userDefined": true
+				}
+			]
+		},
+		{
+			"name": "EventClass",
+			"className": "EventClass",
+			"collectionName": "EventClassCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "eventId",
+					"kind": "storage",
+					"matchColumn": "ID",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "eventDesc",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "eventDate",
+					"kind": "storage",
+					"scope": "public",
+					"type": "date",
+					"simpleDate": false
+				},
+				{
+					"name": "tenentId",
+					"kind": "storage",
+					"scope": "public",
+					"type": "uuid"
+				}
+			],
+			"events": [
+				{
+					"kind": "init",
+					"from": "$mainModel.EventClass.events.init",
+					"userDefined": true
+				}
+			]
+		},
+		{
+			"name": "MemberClass",
+			"className": "MemberClass",
+			"collectionName": "MemberClassCollection",
+			"matchTable": "PersonClass",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "memberName",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "memberEmail",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "memberPosition",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "memberHeight",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "memberWeight",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "tenentId",
+					"kind": "storage",
+					"scope": "public",
+					"type": "uuid"
+				}
+			]
+		},
+		{
+			"name": "UserClass",
+			"className": "UserClass",
+			"collectionName": "UserClassCollection",
+			"scope": "public",
+			"publishAsJSGlobal": true,
+			"attributes": [
+				{
+					"name": "userId",
+					"kind": "storage",
+					"matchColumn": "ID",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "userName",
+					"kind": "storage",
+					"matchColumn": "UserName",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "userPassword",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "userRole",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "tenentId",
+					"kind": "storage",
+					"scope": "public",
+					"type": "uuid"
+				}
+			],
+			"events": [
+				{
+					"kind": "save",
+					"from": "$mainModel.UserClass.events.save"
+				},
+				{
+					"kind": "save",
+					"from": "$mainModel.UserClass.events.save",
+					"userDefined": true
+				},
+				{
+					"kind": "load",
+					"from": "$mainModel.UserClass.events.load",
+					"userDefined": true
+				},
+				{
+					"kind": "init",
+					"from": "$mainModel.UserClass.events.init"
+				},
+				{
+					"kind": "init",
+					"from": "$mainModel.UserClass.events.init",
+					"userDefined": true
+				},
+				{
+					"kind": "validate",
+					"from": "$mainModel.UserClass.events.validate",
+					"userDefined": true
+				}
+			],
+			"methods": [
+				{
+					"name": "getCurrentSession",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "$mainModel.UserClass.methods.getCurrentSession",
+					"userDefined": true
+				},
+				{
+					"name": "getSessionInfo",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "$mainModel.UserClass.methods.getSessionInfo",
+					"userDefined": true
+				},
+				{
+					"name": "insertClubUsers",
+					"applyTo": "entity",
+					"scope": "public",
+					"from": "$mainModel.UserClass.entityMethods.insertClubUsers",
+					"userDefined": true
+				},
+				{
+					"name": "setSessionInfo",
+					"applyTo": "dataClass",
+					"scope": "public",
+					"from": "$mainModel.UserClass.methods.setSessionInfo",
+					"userDefined": true
+				},
+				{
+					"name": "test",
+					"applyTo": "entity",
+					"scope": "publicOnServer",
+					"from": "$mainModel.UserClass.entityMethods.test",
+					"userDefined": true
+				}
+			]
+		}
+	]
+}
